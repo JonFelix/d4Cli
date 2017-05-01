@@ -43,6 +43,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuLogIsShown = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.MenuStartWithWindows = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LogSplitter)).BeginInit();
             this.LogSplitter.Panel1.SuspendLayout();
             this.LogSplitter.Panel2.SuspendLayout();
@@ -133,7 +134,8 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuMinimizeOnClose,
-            this.MenuLogTimestamp});
+            this.MenuLogTimestamp,
+            this.MenuStartWithWindows});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -141,14 +143,14 @@
             // MenuMinimizeOnClose
             // 
             this.MenuMinimizeOnClose.Name = "MenuMinimizeOnClose";
-            this.MenuMinimizeOnClose.Size = new System.Drawing.Size(170, 22);
+            this.MenuMinimizeOnClose.Size = new System.Drawing.Size(174, 22);
             this.MenuMinimizeOnClose.Text = "Minimize on close";
             this.MenuMinimizeOnClose.Click += new System.EventHandler(this.MenuMinimizeOnClose_Click);
             // 
             // MenuLogTimestamp
             // 
             this.MenuLogTimestamp.Name = "MenuLogTimestamp";
-            this.MenuLogTimestamp.Size = new System.Drawing.Size(170, 22);
+            this.MenuLogTimestamp.Size = new System.Drawing.Size(174, 22);
             this.MenuLogTimestamp.Text = "Log timestamp";
             this.MenuLogTimestamp.Click += new System.EventHandler(this.logTimestampToolStripMenuItem_Click);
             // 
@@ -166,7 +168,7 @@
             this.MenuLogIsShown.Checked = true;
             this.MenuLogIsShown.CheckState = System.Windows.Forms.CheckState.Checked;
             this.MenuLogIsShown.Name = "MenuLogIsShown";
-            this.MenuLogIsShown.Size = new System.Drawing.Size(94, 22);
+            this.MenuLogIsShown.Size = new System.Drawing.Size(93, 22);
             this.MenuLogIsShown.Text = "Log";
             this.MenuLogIsShown.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
@@ -176,6 +178,13 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+            // 
+            // MenuStartWithWindows
+            // 
+            this.MenuStartWithWindows.Name = "MenuStartWithWindows";
+            this.MenuStartWithWindows.Size = new System.Drawing.Size(174, 22);
+            this.MenuStartWithWindows.Text = "Start with windows";
+            this.MenuStartWithWindows.Click += new System.EventHandler(this.startWithWindowsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -219,6 +228,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuMinimizeOnClose;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MenuLogTimestamp;
+        private System.Windows.Forms.ToolStripMenuItem MenuStartWithWindows;
     }
 }
 
