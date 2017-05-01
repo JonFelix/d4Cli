@@ -36,12 +36,13 @@
             this.Browser = new System.Windows.Forms.WebBrowser();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMinimizeOnClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuLogTimestamp = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuLogIsShown = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LogSplitter)).BeginInit();
             this.LogSplitter.Panel1.SuspendLayout();
             this.LogSplitter.Panel2.SuspendLayout();
@@ -51,8 +52,10 @@
             // 
             // LogBox
             // 
+            this.LogBox.BackColor = System.Drawing.SystemColors.ControlDark;
             this.LogBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.LogBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogBox.ForeColor = System.Drawing.SystemColors.InfoText;
             this.LogBox.Location = new System.Drawing.Point(0, 0);
             this.LogBox.Multiline = true;
             this.LogBox.Name = "LogBox";
@@ -100,6 +103,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
@@ -118,10 +122,18 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuMinimizeOnClose});
+            this.MenuMinimizeOnClose,
+            this.MenuLogTimestamp});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -133,10 +145,18 @@
             this.MenuMinimizeOnClose.Text = "Minimize on close";
             this.MenuMinimizeOnClose.Click += new System.EventHandler(this.MenuMinimizeOnClose_Click);
             // 
+            // MenuLogTimestamp
+            // 
+            this.MenuLogTimestamp.Name = "MenuLogTimestamp";
+            this.MenuLogTimestamp.Size = new System.Drawing.Size(170, 22);
+            this.MenuLogTimestamp.Text = "Log timestamp";
+            this.MenuLogTimestamp.Click += new System.EventHandler(this.logTimestampToolStripMenuItem_Click);
+            // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuLogIsShown});
+            this.viewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -157,19 +177,14 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(618, 527);
             this.Controls.Add(this.LogSplitter);
+            this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -203,6 +218,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ToolStripMenuItem MenuMinimizeOnClose;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuLogTimestamp;
     }
 }
 

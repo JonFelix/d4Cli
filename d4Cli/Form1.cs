@@ -23,6 +23,7 @@ namespace d4Cli
             InitializeComponent();
             MenuLogIsShown.Checked = _logIsShown;
             MenuMinimizeOnClose.Checked = _minimizeOnClose;
+            MenuLogTimestamp.Checked = _logTimestamp;
             ResizeLogBox();
             Browser.DocumentText = _browserText;
         }
@@ -50,9 +51,7 @@ namespace d4Cli
 
         private void AddItem()
         {               
-            ClipboardItem cbi = new ClipboardItem();
-            cbi.Text = Clipboard.GetText();
-            cbi.Timestamp = DateTime.Now;
+            ClipboardItem cbi = new ClipboardItem(Clipboard.GetText());
             Log("Add '" + cbi.Text + "' to clipboard memory.");
             _list.Add(cbi);
             AddToBrowser(cbi);                
@@ -105,7 +104,7 @@ namespace d4Cli
         private void AddToBrowser(ClipboardItem cbi)
         {
             ReadStyle();
-            string preText = "<div class=\"item\"><div class=\"timestamp\">" + cbi.Timestamp.ToLocalTime().ToString() + "</div><div class=\"text\">";
+            string preText = "<div class=\"item\"><div class=\"timestamp\">" + cbi.Timestamp.ToLocalTime().ToString() + " | " + cbi.WindowTitle + "</div><div class=\"text\">";
             string postText = "</div></div>";
             _browserText = preText + cbi.Text + postText + _browserText;
             Browser.DocumentText = "<!DOCTYPE html><html><head><meta http-equiv=\"X - UA - Compatible\" content =\"IE = 9\" /><style>" + _style + "</style></head><body>" + _browserText + "</body></html>";
@@ -145,6 +144,12 @@ namespace d4Cli
         {
             _approvedClose = true;
             Close();
+        }   
+
+        private void logTimestampToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _logTimestamp = !_logTimestamp;
+            MenuLogTimestamp.Checked = _logTimestamp;
         }
     }
 }
