@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;     
 using System.Windows.Forms;
-using d4Cli.Data
+using d4Cli.Data;
 
 namespace d4Cli
 {
