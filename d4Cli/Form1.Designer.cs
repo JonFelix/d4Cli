@@ -38,6 +38,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuLogIsShown = new System.Windows.Forms.ToolStripMenuItem();
             this.Browser = new System.Windows.Forms.WebBrowser();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.LogSplitter)).BeginInit();
             this.LogSplitter.Panel1.SuspendLayout();
             this.LogSplitter.Panel2.SuspendLayout();
@@ -135,6 +136,11 @@
             this.Browser.Size = new System.Drawing.Size(618, 239);
             this.Browser.TabIndex = 1;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MenuLogIsShown;
         private System.Windows.Forms.WebBrowser Browser;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

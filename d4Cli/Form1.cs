@@ -79,6 +79,8 @@ namespace d4Cli
             if(_logIsShown)
             {
                 LogSplitter.Panel2.Hide();
+
+                LogSplitter.SplitterDistance = Size.Height;
             }
             else
             {
@@ -101,7 +103,7 @@ namespace d4Cli
         {
             ReadStyle();
             string preText = "<div class=\"item\"><div class=\"timestamp\">" + cbi.Timestamp.ToLocalTime().ToString() + "</div><div class=\"text\">";
-            string postText = "</div></div></br>";
+            string postText = "</div></div>";
             _browserText = preText + cbi.Text + postText + _browserText;
             Browser.DocumentText = "<!DOCTYPE html><html><head><meta http-equiv=\"X - UA - Compatible\" content =\"IE = 9\" /><style>" + _style + "</style></head><body>" + _browserText + "</body></html>";
         }
