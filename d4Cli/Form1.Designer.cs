@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.LogBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.LogSplitter = new System.Windows.Forms.SplitContainer();
+            this.Browser = new System.Windows.Forms.WebBrowser();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuMinimizeOnClose = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuLogIsShown = new System.Windows.Forms.ToolStripMenuItem();
-            this.Browser = new System.Windows.Forms.WebBrowser();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LogSplitter)).BeginInit();
             this.LogSplitter.Panel1.SuspendLayout();
             this.LogSplitter.Panel2.SuspendLayout();
@@ -83,6 +86,18 @@
             this.LogSplitter.SplitterDistance = 263;
             this.LogSplitter.TabIndex = 1;
             // 
+            // Browser
+            // 
+            this.Browser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Browser.IsWebBrowserContextMenuEnabled = false;
+            this.Browser.Location = new System.Drawing.Point(0, 24);
+            this.Browser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.Browser.Name = "Browser";
+            this.Browser.ScriptErrorsSuppressed = true;
+            this.Browser.ScrollBarsEnabled = false;
+            this.Browser.Size = new System.Drawing.Size(618, 239);
+            this.Browser.TabIndex = 1;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,15 +112,26 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // editToolStripMenuItem
             // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuMinimizeOnClose});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // MenuMinimizeOnClose
+            // 
+            this.MenuMinimizeOnClose.Name = "MenuMinimizeOnClose";
+            this.MenuMinimizeOnClose.Size = new System.Drawing.Size(170, 22);
+            this.MenuMinimizeOnClose.Text = "Minimize on close";
+            this.MenuMinimizeOnClose.Click += new System.EventHandler(this.MenuMinimizeOnClose_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -124,22 +150,19 @@
             this.MenuLogIsShown.Text = "Log";
             this.MenuLogIsShown.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
-            // Browser
-            // 
-            this.Browser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Browser.IsWebBrowserContextMenuEnabled = false;
-            this.Browser.Location = new System.Drawing.Point(0, 24);
-            this.Browser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.Browser.Name = "Browser";
-            this.Browser.ScriptErrorsSuppressed = true;
-            this.Browser.ScrollBarsEnabled = false;
-            this.Browser.Size = new System.Drawing.Size(618, 239);
-            this.Browser.TabIndex = 1;
-            // 
             // notifyIcon1
             // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -147,9 +170,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 527);
             this.Controls.Add(this.LogSplitter);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Clipboard Manager";
+            this.Deactivate += new System.EventHandler(this.Form1_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.LogSplitter.Panel1.ResumeLayout(false);
             this.LogSplitter.Panel1.PerformLayout();
@@ -175,6 +201,8 @@
         private System.Windows.Forms.ToolStripMenuItem MenuLogIsShown;
         private System.Windows.Forms.WebBrowser Browser;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem MenuMinimizeOnClose;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

@@ -15,11 +15,14 @@ namespace d4Cli
         private float _logSize = 0.2f;
         private string _browserText = "";
         private string _style= "";
+        private bool _minimizeOnClose = false;
+        private bool _approvedClose = false;
 
         public Form1()
         {
             InitializeComponent();
             MenuLogIsShown.Checked = _logIsShown;
+            MenuMinimizeOnClose.Checked = _minimizeOnClose;
             ResizeLogBox();
             Browser.DocumentText = _browserText;
         }
@@ -111,6 +114,37 @@ namespace d4Cli
         private void ReadStyle()
         {
             _style = File.ReadAllText(@"style.css");
+        }
+
+        private void Form1_Deactivate(object sender, EventArgs e)
+        {
+            Hide();
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Show();
+        }
+
+        private void MenuMinimizeOnClose_Click(object sender, EventArgs e)
+        {
+            _minimizeOnClose = !_minimizeOnClose;
+            MenuMinimizeOnClose.Checked = _minimizeOnClose;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(_minimizeOnClose && !_approvedClose)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _approvedClose = true;
+            Close();
         }
     }
 }

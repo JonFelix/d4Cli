@@ -12,7 +12,9 @@
 .timestamp {
     font-size: 9px;
     user-select: none;
+	font-family: Consolas;
 }
 .text {
     padding-left: 10px;
+	font-family: Consolas;
 }
